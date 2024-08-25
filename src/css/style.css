@@ -1,0 +1,124 @@
+body {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+main::after {
+  content: "";
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    270deg,
+    rgba(15, 5, 39, 0.75) 0%,
+    rgba(255, 255, 255, 0) 51%,
+    rgba(15, 5, 39, 0.75) 100%
+  );
+  z-index: -1;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  justify-content: space-evenly;
+}
+h1 {
+  font-family: RumbleBrave;
+  font-size: 60px;
+  margin-bottom: 10px;
+  animation: flicker 1s alternate infinite;
+  letter-spacing: 3px;
+  width: 60%;
+  color: #fff;
+  line-height: 50px;
+  padding: 20px;
+  text-align: center;
+}
+@keyframes flicker {
+    0% {
+      text-shadow: 0 0 10px #ffffff;
+    }
+    100% {
+      text-shadow: 0 0 30px #ff0000;
+    }
+  }
+  @font-face {
+    font-family: "RumbleBrave";
+    src: url("../fonts/Rumble\ Brave.otf") format("truetype");
+  }
+.informations p {
+  width: 60%;
+  font-size: 24px;
+  color: #fff;
+  line-height: 50px;
+  font-family: "Courier New", Courier, monospace;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+.carousel-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.carousel-buttons .button {
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  border-color: #fff;
+}
+.carousel-buttons .button.selected {
+  background-color: #1d8346;
+}
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.side-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.side-menu .icon {
+  width: 30px;
+  filter: invert(1);
+  transition: 0.3s ease-in-out;
+}
+.side-menu .icon:hover {
+  transform: scale(1.2);
+}
+.carousel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+.carousel .image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: none;
+  animation: imageTransition 0.7s;
+}
+.carousel .image.active {
+  display: block;
+}
+@keyframes imageTransition {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
